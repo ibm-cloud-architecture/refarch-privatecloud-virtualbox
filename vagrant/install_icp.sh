@@ -12,6 +12,15 @@ sudo apt-get install -y docker-ce
 echo Validating Docker install
 sudo docker run hello-world
 
+echo Install Vagrant key
+mkdir -p /home/vagrant/.ssh
+chmod 0700 /home/vagrant/.ssh
+wget --no-check-certificate \
+    https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub \
+    -O /home/vagrant/.ssh/authorized_keys
+chmod 0600 /home/vagrant/.ssh/authorized_keys
+chown -R vagrant /home/vagrant/.ssh
+
 echo Install docker.py
 sudo apt-get install -y python-setuptools
 sudo easy_install pip
