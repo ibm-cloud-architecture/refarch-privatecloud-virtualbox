@@ -8,6 +8,7 @@ then
 	vagrant box add icp icp-image
 fi
 
+cd deploy
 vagrant init -f icp
 vagrant up
-vagrant ssh -c "docker pull ibmcom/cfc-installer:1.2.0"
+vagrant ssh -c "docker pull ibmcom/cfc-installer:latest"

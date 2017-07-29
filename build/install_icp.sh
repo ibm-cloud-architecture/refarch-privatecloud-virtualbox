@@ -26,3 +26,9 @@ sudo apt-get install -y python-setuptools
 sudo easy_install pip
 sudo -H pip install docker-py>=1.7.0
 
+echo Prepare for packaging
+sudo apt-get clean
+sudo dd if=/dev/zero of=/EMPTY bs=1M
+sudo rm -f /EMPTY
+
+
