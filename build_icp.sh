@@ -2,7 +2,7 @@
 cd build
 vagrant init ubuntu/xenial64
 vagrant box update
-vagrant destroy -f
+#vagrant destroy -f
 vagrant up
 
 

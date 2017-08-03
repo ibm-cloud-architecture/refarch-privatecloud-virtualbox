@@ -43,5 +43,25 @@ sudo apt-get install -y python-setuptools
 sudo easy_install pip
 sudo -H pip install docker-py>=1.7.0
 
+echo =================================================================
+echo Checking docker
+sudo systemctl status docker --no-pager
+
+
+echo =================================================================
+echo Pulling ICp image
+sudo docker pull ibmcom/cfc-installer:1.2.0
+
+echo =================================================================
+echo Configuring ICp
+cd /opt
+sudo docker run -e LICENSE=accept --rm -v "$(pwd)":/data ibmcom/cfc-installer:1.2.0 cp -r cluster /data
+
+echo 
+echo Obtaining IP address
+export IP_ADDRESS=`hostname -I | cut -d' ' -f1`
+echo IP address: $IP_ADDRESS
+
+
 #prepare_for_packaging()
 
