@@ -1,0 +1,11 @@
+Requirement already satisfied: docker-py in /usr/local/lib/python2.7/dist-packages
+Requirement already satisfied: backports.ssl-match-hostname>=3.5; python_version < "3.5" in /usr/local/lib/python2.7/dist-packages (from docker-py)
+Requirement already satisfied: six>=1.4.0 in /usr/local/lib/python2.7/dist-packages (from docker-py)
+Requirement already satisfied: websocket-client>=0.32.0 in /usr/local/lib/python2.7/dist-packages (from docker-py)
+Requirement already satisfied: ipaddress>=1.0.16; python_version < "3.3" in /usr/local/lib/python2.7/dist-packages (from docker-py)
+Requirement already satisfied: docker-pycreds>=0.2.1 in /usr/local/lib/python2.7/dist-packages (from docker-py)
+Requirement already satisfied: requests!=2.11.0,>=2.5.2 in /usr/local/lib/python2.7/dist-packages (from docker-py)
+Requirement already satisfied: idna<2.6,>=2.5 in /usr/local/lib/python2.7/dist-packages (from requests!=2.11.0,>=2.5.2->docker-py)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /usr/local/lib/python2.7/dist-packages (from requests!=2.11.0,>=2.5.2->docker-py)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python2.7/dist-packages (from requests!=2.11.0,>=2.5.2->docker-py)
+Requirement already satisfied: urllib3<1.23,>=1.21.1 in /usr/local/lib/python2.7/dist-packages (from requests!=2.11.0,>=2.5.2->docker-py)

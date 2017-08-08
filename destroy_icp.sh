@@ -1,2 +1,2 @@
-cd deploy
+cd build
 vagrant destroy -f

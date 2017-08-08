@@ -5,6 +5,11 @@ vagrant box update
 #vagrant destroy -f
 vagrant up
 
+# Store ubuntu password
+PASSWORD=`grep password /Users/edu/.vagrant.d/boxes/ubuntu-VAGRANTSLASH-xenial64/20170803.0.0/virtualbox/Vagrantfile | awk '{print $3}'`
+PASSWORD="${PASSWORD%\"}"
+PASSWORD="${PASSWORD#\"}"
+echo "$PASSWORD" > password
 
 # Install ICP
 vagrant ssh -c "/vagrant/install_icp.sh"

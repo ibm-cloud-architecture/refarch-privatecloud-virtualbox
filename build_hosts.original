@@ -1,0 +1,8 @@
+[master]
+IP_ADDRESS
+
+[worker]
+IP_ADDRESS
+
+[proxy]
+IP_ADDRESS
