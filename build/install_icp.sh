@@ -49,7 +49,10 @@ echo "root:password" | sudo chpasswd
 
 echo =================================================================
 echo Enable root ssh
-sed 's/PermitRootLogin .*/PermitRootLogin yes/'  < /etc/ssh/sshd_config
+sed 's/PermitRootLogin .*/PermitRootLogin yes/'  < /etc/ssh/sshd_config > /tmp/sshd_config
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.original
+sudo cp /tmp/sshd_config /etc/ssh/sshd_config
+sudo service sshd restart
 
 echo =================================================================
 echo Configuring ssh
@@ -82,11 +85,18 @@ cd /opt
 sudo docker run -e LICENSE=accept --rm -v "$(pwd)":/data ibmcom/cfc-installer:1.2.0 cp -r cluster /data
 
 echo =================================================================
-echo Configuring hosts file
+echo Configuring ICp hosts file
 export HOSTS=/opt/cluster/hosts
 sudo cp $HOSTS $HOSTS.original
 sed s/IP_ADDRESS/$IP_ADDRESS/ /vagrant/hosts > /tmp/hosts
 sudo cp /tmp/hosts $HOSTS
+
+echo =================================================================
+echo Configuring ICp hosts file
+export HOSTS=/etc/hosts
+sudo cp $HOSTS $HOSTS.original
+printf "$IP_ADDRESS\tvagrant\n"
+
 
 echo =================================================================
 echo Installing ICp
