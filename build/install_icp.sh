@@ -44,11 +44,19 @@ sudo easy_install pip
 sudo -H pip install docker-py>=1.7.0
 
 echo =================================================================
+echo Configure root password
+echo "root:password" | sudo chpasswd
+
+echo =================================================================
+echo Enable root ssh
+sed 's/PermitRootLogin .*/PermitRootLogin yes/'  < /etc/ssh/sshd_config
+
+echo =================================================================
 echo Configuring ssh
 rm -f $HOME/.ssh/id_rsa $HOME/.ssh/id_rsa.pub
 ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -P ''
 sudo apt-get install sshpass
-sudo sshpass -p `cat /vagrant/password` ssh-copy-id -i $HOME/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@localhost
+sudo sshpass -p password ssh-copy-id -i $HOME/.ssh/id_rsa -o StrictHostKeyChecking=no root@localhost
 
 echo =================================================================
 echo Checking docker
