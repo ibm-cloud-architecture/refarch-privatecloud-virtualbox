@@ -2,7 +2,6 @@
 cd build
 vagrant init ubuntu/xenial64
 vagrant box update
-#vagrant destroy -f
 vagrant up
 
 # Store ubuntu password
@@ -15,10 +14,10 @@ echo "$PASSWORD" > password
 vagrant ssh -c "/vagrant/install_icp.sh"
 
 # Stop VM
-#vagrant halt
+vagrant halt
 
 # Pack ICP box
-#rm icp
-#vagrant package --output icp
-#vagrant box add icp icp --force
+rm icp
+vagrant package --output icp
+vagrant box add icp icp --force
 

@@ -4,10 +4,10 @@ echo Box: $BOX
 if [ -z "$BOX" ]
 then
 	echo Adding icp
-#	vagrant box add icp https://ibm.box.com/shared/static/qcqlz2656khmma227e7874dm4nbzxil2
+	vagrant box add icp https://ibm.box.com/shared/static/mdb65721wukaukr6zovboind8199g3jw
 fi
 
 cd deploy
-vagrant init -f icp
+vagrant init icp
 vagrant up
-vagrant ssh -c "docker pull ibmcom/cfc-installer:latest"
+vagrant ssh -c "/vagrant/deploy.sh"
