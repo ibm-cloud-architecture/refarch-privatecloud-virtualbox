@@ -43,4 +43,4 @@ sudo docker run -e LICENSE=accept --net=host --rm -t -v "$(pwd)":/installer/clus
 echo =================================================================
 echo Obtaining Public IP address
 export PUBLIC_IP_ADDRESS=`hostname -I | cut -d' ' -f2`
-echo Public URL: https://$PUBLIC_IP_ADDRESS:9443
+echo Public URL: https://$PUBLIC_IP_ADDRESS:8443

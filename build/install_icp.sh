@@ -66,4 +66,4 @@ echo Checking docker
 sudo systemctl status docker --no-pager
 
 
-prepare_for_packaging()
+# prepare_for_packaging
