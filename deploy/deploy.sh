@@ -1,16 +1,18 @@
+IMAGE=ibmcom/cfc-installer:2.1.0-beta-1
+
 echo =================================================================
 echo Pulling ICp image
-sudo docker pull ibmcom/cfc-installer:1.2.0
+sudo docker pull $IMAGE
 
 echo =================================================================
 echo Configuring ICp
 cd /opt
-sudo docker run -e LICENSE=accept --rm -v "$(pwd)":/data ibmcom/cfc-installer:1.2.0 cp -r cluster /data
+sudo docker run -e LICENSE=accept --rm -v "$(pwd)":/data $IMAGE cp -r cluster /data
 
 echo =================================================================
 echo Extracting the image
 cd /opt
-sudo docker run -e LICENSE=accept --rm -v "$(pwd)":/data ibmcom/cfc-installer:1.2.0 cp -r cluster /data
+sudo docker run -e LICENSE=accept --rm -v "$(pwd)":/data $IMAGE cp -r cluster /data
 
 echo =================================================================
 echo Obtaining IP address
