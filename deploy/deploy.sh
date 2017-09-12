@@ -1,4 +1,4 @@
-IMAGE=ibmcom/cfc-installer:2.1.0-beta-1
+IMAGE=ibmcom/cfc-installer:1.2.0
 
 echo =================================================================
 echo Pulling ICp image
