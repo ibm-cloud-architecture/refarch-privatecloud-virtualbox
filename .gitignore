@@ -1,5 +1,4 @@
 .vagrant/
-Vagrantfile
 icp-image
 build/icp
 
